@@ -5,17 +5,18 @@ using UnityEngine;
 public class pierwszySkrypt : MonoBehaviour
 {
     // typ_zmiennej tekst  = "abcd";
-    string tekst = "Dziala";
-    decimal liczba1 = 3;
-    double liczba2 = 3.5;
-    float liczba3 = 1.2f;
-
+    float liczba1 = 3.14f;
+    float liczba2 = 6.0f;
+    float wynik;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(tekst);
+        wynik = liczba1 + liczba2;
+        Debug.Log(wynik);
     }
+    
 
     // Update is called once per frame
     void Update()
