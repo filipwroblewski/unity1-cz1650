@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown("space"))
         {
-            Debug.Log("spacja kliknieta");
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
+            //Debug.Log("spacja kliknieta");
         }
     }
 }
