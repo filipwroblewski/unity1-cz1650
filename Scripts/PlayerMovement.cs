@@ -18,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
         // Horizontal
         osX = Input.GetAxis("Horizontal");
         Debug.Log(osX);
-        
+        rb2d.velocity = new Vector2(osX, rb2d.velocity.y);
+
+
 
         if (Input.GetButton("Jump")) // Input.GetKeyDown("space")
         {
