@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float jumpHeight = 4.0f;
+    //float movementSpeed = 4.0f;
     Rigidbody2D rb2d;
     float osX;
 
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         // Horizontal
         osX = Input.GetAxis("Horizontal");
         Debug.Log(osX);
-        rb2d.velocity = new Vector2(osX, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(osX * 4.0f, rb2d.velocity.y);
 
 
 
