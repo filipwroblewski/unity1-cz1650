@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    float jumpHeight = 4.0f;
+    Rigidbody2D rb2d;
+    float osX;
+
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown("space"))
+        // Horizontal
+        osX = Input.GetAxis("Horizontal");
+        Debug.Log(osX);
+        
+
+        if (Input.GetButton("Jump")) // Input.GetKeyDown("space")
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
+            //GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
+            rb2d.velocity = new Vector2(0, jumpHeight);
             //Debug.Log("spacja kliknieta");
         }
     }
