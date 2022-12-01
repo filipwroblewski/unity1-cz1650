@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Jump")) // Input.GetKeyDown("space")
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
-            rb2d.velocity = new Vector2(0, jumpHeight);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
             //Debug.Log("spacja kliknieta");
         }
     }
