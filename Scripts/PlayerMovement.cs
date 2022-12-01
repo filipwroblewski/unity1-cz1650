@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Horizontal
-        osX = Input.GetAxis("Horizontal");
+        osX = Input.GetAxisRaw("Horizontal");
         Debug.Log(osX);
         rb2d.velocity = new Vector2(osX * 4.0f, rb2d.velocity.y);
 
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Jump")) // Input.GetKeyDown("space")
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight); // 0 -> rb2d.velocity.x
             //Debug.Log("spacja kliknieta");
         }
     }
