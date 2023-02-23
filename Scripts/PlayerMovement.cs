@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
     Animator anim;
+    SpriteRenderer sprite;
 
     float jumpHeight = 4.0f;
     float movementSpeed = 4.0f;
@@ -15,20 +16,18 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         // Horizontal
         osX = Input.GetAxisRaw("Horizontal");
-        // Debug.Log(osX);
-        rb2d.velocity = new Vector2(osX * movementSpeed, rb2d.velocity.y); //4.0f -> movementSpeed
+        rb2d.velocity = new Vector2(osX * movementSpeed, rb2d.velocity.y);
 
-        if (Input.GetButton("Jump")) // Input.GetKeyDown("space")
+        if (Input.GetButton("Jump"))
         {
-            //GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2, 0);
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight); // 0 -> rb2d.velocity.x
-            //Debug.Log("spacja kliknieta");
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpHeight);
         }
 
         UpdateAnimationState();
@@ -36,9 +35,18 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimationState()
     {
-        if (osX > 0 || osX < 0) // osX > 0 bieg w prawo; osX < 0 bieg w lewo
+        /*
+        || OR
+        && AND
+         */
+        
+        if (osX > 0) // osX > 0 bieg w prawo
         {
-            anim.SetBool("running", true);
+            anim.SetBool("running", true); // ustaw ze animacja dziala
+        }
+        else if (osX < 0) // osX < 0 bieg w lewo
+        {
+            anim.SetBool("running", true); // ustaw ze animacja dziala
         }
         else
         {
