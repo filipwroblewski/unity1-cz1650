@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     SpriteRenderer sprite;
 
-    float jumpHeight = 4.0f;
-    float movementSpeed = 4.0f;
+    [SerializeField] float jumpHeight = 4.0f;
+    [SerializeField] float movementSpeed = 4.0f;
     float osX;
 
     void Start()
@@ -35,18 +35,15 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimationState()
     {
-        /*
-        || OR
-        && AND
-         */
-        
         if (osX > 0) // osX > 0 bieg w prawo
         {
-            anim.SetBool("running", true); // ustaw ze animacja dziala
+            anim.SetBool("running", true);
+            sprite.flipX = false;
         }
         else if (osX < 0) // osX < 0 bieg w lewo
         {
-            anim.SetBool("running", true); // ustaw ze animacja dziala
+            anim.SetBool("running", true);
+            sprite.flipX = true;
         }
         else
         {
